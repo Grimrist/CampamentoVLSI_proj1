@@ -12,7 +12,6 @@ ifneq ($(GATES),yes)
 VERILOG_SOURCES += $(PWD)/tb.v 
 					$(PWD)/tt_um_temp_sens_hyst.v 
 					$(PWD)/mux.v
-					$(PWD)/cells.v 
 					$(PWD)/contador.v 
 					$(PWD)/data_sync.v 
 					$(PWD)/FSM_Controller.v 
