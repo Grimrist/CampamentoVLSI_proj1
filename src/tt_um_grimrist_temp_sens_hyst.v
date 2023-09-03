@@ -1,4 +1,5 @@
 `default_nettype none
+`timescale 1ns / 1ps
 
 module tt_um_grimrist_temp_sens_hyst(
     input  wire [7:0] ui_in,    // Dedicated inputs

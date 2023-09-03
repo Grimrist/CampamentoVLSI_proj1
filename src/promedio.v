@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module promedio #(parameter N=8)(
 	input clk, 
 	input reset, 

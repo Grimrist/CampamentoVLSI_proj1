@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module mux(input a,input b,input sel,output reg y);
 
 always @(a or b or sel) begin

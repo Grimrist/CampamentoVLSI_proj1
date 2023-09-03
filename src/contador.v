@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module contador#(parameter N = 8)(input osc_clk, input en, input reset, input clk, output reg [N-1:0] count);
 
 reg aux;

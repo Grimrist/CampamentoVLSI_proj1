@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module FSM_SendData (
 	//INPUTS
 	input clk, reset, sum_ready, 
