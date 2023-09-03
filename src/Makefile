@@ -21,9 +21,7 @@ VERILOG_SOURCES += $(PWD)/tb.v \
 					$(PWD)/uart_baud_tick_gen.v \
 					$(PWD)/uart_rx.v \
 					$(PWD)/uart_tx.v \
-					$(PWD)/USM_ringoscillator.v \
-					$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v \
-					$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
+					$(PWD)/USM_ringoscillator.v
 else
 
 # gate level simulation requires some extra setup, you shouldn't need to touch this

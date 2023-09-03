@@ -1,5 +1,7 @@
 `default_nettype none
 `timescale 1ns/1ps
+`include "/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v"
+`include "/foss/pdks/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v"
 
 module nand_with_delay(
 	input A, 
