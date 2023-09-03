@@ -9,21 +9,12 @@ TOPLEVEL_LANG ?= verilog
 ifneq ($(GATES),yes)
 
 # this is the only part you should need to modify:
-VERILOG_SOURCES += $(PWD)/tb.v \
-					$(PWD)/tt_um_temp_sens_hyst.v \
-					$(PWD)/mux.v \
-					$(PWD)/contador.v \
-					$(PWD)/data_sync.v \
-					$(PWD)/FSM_Controller.v \
-					$(PWD)/FSM_Hysteresis.v \
-					$(PWD)/FSM_SendData.v \
-					$(PWD)/uart_basic.v \
-					$(PWD)/uart_baud_tick_gen.v \
-					$(PWD)/uart_rx.v \
-					$(PWD)/uart_tx.v \
-					$(PWD)/USM_ringoscillator.v \
-					$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v \
-					$(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v
+VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_temp_sens_hyst.v $(PWD)/mux.v \$(PWD)/contador.v $(PWD)/data_sync.v $(PWD)/FSM_Controller.v
+VERILOG_SOURCES += $(PWD)/uart_baud_tick_gen.v $(PWD)/uart_rx.v $(PWD)/FSM_Hysteresis.v $(PWD)/FSM_SendData.v $(PWD)/uart_basic.v
+VERILOG_SOURCES += $(PWD)/uart_tx.v $(PWD)/USM_ringoscillator.v
+VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
+VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v
+
 else
 
 # gate level simulation requires some extra setup, you shouldn't need to touch this
