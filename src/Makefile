@@ -9,18 +9,17 @@ TOPLEVEL_LANG ?= verilog
 ifneq ($(GATES),yes)
 
 # this is the only part you should need to modify:
-VERILOG_SOURCES += $(PWD)/tb.v 
-					$(PWD)/tt_um_temp_sens_hyst.v 
-					$(PWD)/mux.v
-					$(PWD)/contador.v 
-					$(PWD)/data_sync.v 
-					$(PWD)/FSM_Controller.v 
-					$(PWD)/FSM_Hysteresis.v 
-					$(PWD)/FSM_SendData.v 
-					$(PWD)/uart_basic.v 
-					$(PWD)/uart_baud_tick_gen.v 
-					$(PWD)/uart_rx.v 
-					$(PWD)/uart_tx.v 
+VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_temp_sens_hyst.v 
+					$(PWD)/mux.v \
+					$(PWD)/contador.v \
+					$(PWD)/data_sync.v \
+					$(PWD)/FSM_Controller.v \
+					$(PWD)/FSM_Hysteresis.v \
+					$(PWD)/FSM_SendData.v \
+					$(PWD)/uart_basic.v \
+					$(PWD)/uart_baud_tick_gen.v \
+					$(PWD)/uart_rx.v \
+					$(PWD)/uart_tx.v \
 					$(PWD)/USM_ringoscillator.v 
 else
 

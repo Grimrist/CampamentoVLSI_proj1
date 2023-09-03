@@ -6,8 +6,20 @@ project:
 # If using an HDL, set wokwi_id as 0 and uncomment and list your source files here. 
 # Source files must be in ./src and you must list each source file separately
   source_files:        
-    - tt_um_ALU_reg_ref.v
-  top_module:  "tt_um_ALU_reg_ref"      # put the name of your top module here, make it unique by prepending your github username
+    - tt_um_grimrist_temp_sens_hyst.v
+    - contador.v
+    - data_sync.v
+    - FSM_Controller.v
+    - FSM_Hysteresis.v
+    - FSM_SendData.v
+    - mux.v
+    - promedio.v
+    - uart_basic.v
+    - uart_baud_tick_gen.v
+    - uart_rx.v
+    - uart_tx.v
+    - USM_ringoscillator.v
+  top_module:  "tt_um_grimrist_temp_sens_hyst"      # put the name of your top module here, make it unique by prepending your github username
 
 # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x1"    # Valid values: 1x1, 1x2, 2x2, 4x2 or 8x2
