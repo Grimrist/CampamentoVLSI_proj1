@@ -6,7 +6,7 @@
 
 This is the second iteration of the ring oscillator based temp sensor in **Tiny Tapeout 04** from **Matt Venn**.
 
-![photo_5053272115054226319_y](https://user-images.githubusercontent.com/64666124/233799343-270f5787-9671-4128-8acd-5d360de0d02f.jpg)
+![main_diagram](https://raw.githubusercontent.com/Grimrist/tt04_usm_ro-based_tempsens-hyst/5e2bb18ec7927b7f8a91085f53489f488c201f28/diagram/main_diagram.png)
 
 ## Description
 
