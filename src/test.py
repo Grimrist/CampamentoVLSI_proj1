@@ -44,4 +44,4 @@ async def dummy_test(dut):
     dut.rx.value = 0 #Bit 8
     await Timer(1000000, units='ns')
     dut.rx.value = 0 #End bit
-    await Timer(100000000, units='ns')
+    await Timer(10000000, units='ns')
