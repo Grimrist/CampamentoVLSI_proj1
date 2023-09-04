@@ -18,7 +18,7 @@ module tb ();
 
     // wire up the inputs and outputs
     reg clk_sel, clk, clk_external, en, reset, rx, osc_sel;
-    wire tx;
+    wire tx, temp_warn;
     reg en_inv_osc, en_nand_osc;
     wire [7:0] ui_in, uo_out, uio_in, uio_out, uio_oe;
     reg rst_n, ena;
