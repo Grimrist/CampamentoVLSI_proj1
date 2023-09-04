@@ -17,18 +17,26 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    reg  clk;
-    reg  rst_n;
-    reg  ena;
-    reg  [7:0] ui_in;
-    reg  [7:0] uio_in;
+    reg clk_sel, clk, clk_external, en, reset, rx, osc_sel;
+    wire tx;
+    reg en_inv_osc, en_nand_osc;
+    wire [7:0] ui_in, uo_out, uio_in, uio_out, uio_oe;
+    reg rst_n, ena;
+    wire [7:0] count_out;
 
-    wire [6:0] segments = uo_out[6:0];
-    wire [7:0] uo_out;
-    wire [7:0] uio_out;
-    wire [7:0] uio_oe;
+    assign ui_in[0] = clk_external;
+    assign ui_in[1] = clk_sel;
+	assign ui_in[2] = en_inv_osc;
+	assign ui_in[3] = en_nand_osc;
+    assign ui_in[4] = rx;
+    assign ui_in[5] = osc_sel;
+    assign ui_in[6] = 'b0;
+    assign ui_in[7] = 'b0;
+    assign tx = uo_out[0];
+    assign temp_warn = uo_out[1];
+    assign count_out = uio_out;
 
-    tt_um_ALU_reg_ref tt_um_ALU_reg_ref (
+    tt_um_grimrist_temp_sens_hyst tt_um_grimrist_temp_sens_hyst (
     // include power ports for the Gate Level test
     `ifdef GL_TEST
         .VPWR( 1'b1),
@@ -43,5 +51,4 @@ module tb ();
         .clk        (clk),      // clock
         .rst_n      (rst_n)     // not reset
         );
-
 endmodule
