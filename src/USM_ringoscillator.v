@@ -37,7 +37,7 @@ module USM_ringoscillator_inv2(
 );
 
 
-localparam etapas = 99;
+localparam etapas = 3; //should be 99
 
 wire aux_wire [etapas:0];
     
@@ -62,7 +62,7 @@ module USM_ringoscillator_nand4(
 );
 
 
-localparam etapas = 33;
+localparam etapas = 3; //should be 33
 
 wire aux_wire [etapas:0];
     
