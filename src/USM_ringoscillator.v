@@ -11,7 +11,7 @@ module nand_with_delay(
 assign #200 Y=~A;
 `else
 sky130_fd_sc_hd__nand4_4 nand4(.Y(Y), .A(A), .B(A), .C(A), .D(A));
-//nand #(1) (Y,A,A);
+// nand #(2) (Y,A,A);
 `endif
 endmodule
 
@@ -25,7 +25,7 @@ module inv_with_delay(
 assign #200 Y=~A;
 `else
 sky130_fd_sc_hd__inv_2 inv(.A(A),.Y(Y));
-//nor #(1) (Y,A,A);
+// nor #(2) (Y,A,A);
 `endif
 endmodule
 
@@ -37,7 +37,7 @@ module USM_ringoscillator_inv2(
 );
 
 
-localparam etapas = 3; //should be 99
+localparam etapas = 99; //should be 99
 
 wire aux_wire [etapas:0];
     
@@ -62,7 +62,7 @@ module USM_ringoscillator_nand4(
 );
 
 
-localparam etapas = 3; //should be 33
+localparam etapas = 33; //should be 33
 
 wire aux_wire [etapas:0];
     

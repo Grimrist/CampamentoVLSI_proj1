@@ -5,12 +5,12 @@ module promedio #(parameter N=8)(
 	input reset, 
 	input en,
 	input sum_en,
-	input [15:0] in,
-	output reg [N-1:0] out,
+	input [N-1:0] in,
+	output reg [N-3:0] out,
 	output reg sum_ready
 ); 
 
-reg [15:0] contador;
+reg [4:0] contador;
 reg [N-1:0] suma;
 
 always @(posedge clk) begin
@@ -32,7 +32,7 @@ end
 
 always @(posedge clk) begin
 	if(reset) out <= 0;
-	else if(sum_ready) out <= suma >> 2;
+	else if(sum_ready) out <= suma[N-1:2];
 end
 
 

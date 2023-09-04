@@ -1,11 +1,11 @@
 `timescale 1ns / 1ps
 
-module FSM_Hysteresis (
+module FSM_Hysteresis #(parameter N=8) (
 	//INPUTS
 	input clk, reset,
-    input [15:0] temp_high,
-    input [15:0] temp_low,
-    input [15:0] temp_average,
+    input [N-1:0] temp_high,
+    input [N-1:0] temp_low,
+    input [N-1:0] temp_average,
 	//OUTPUTS
 	output reg temp_warn
 );

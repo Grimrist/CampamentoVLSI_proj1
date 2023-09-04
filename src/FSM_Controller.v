@@ -11,18 +11,18 @@ module FSM_Controller (
 	output reg en_reg2
 );
 
-reg [3:0] state, next_state;
+reg [2:0] state, next_state;
 localparam IDLE = 0;
 localparam DECODER = 1;
 localparam ENABLE_SEND = 2;
 localparam WAIT_REG1_A = 3;
 localparam STORE_REG1_A = 4;
-localparam WAIT_REG1_B = 5;
-localparam STORE_REG1_B = 6;
-localparam WAIT_REG2_A = 7;
-localparam STORE_REG2_A = 8;
-localparam WAIT_REG2_B = 9;
-localparam STORE_REG2_B = 10;
+// localparam WAIT_REG1_B = 5;
+// localparam STORE_REG1_B = 6;
+localparam WAIT_REG2_A = 5;
+localparam STORE_REG2_A = 6;
+// localparam WAIT_REG2_B = 9;
+// localparam STORE_REG2_B = 10;
 
 
 localparam CODE_SEND = 0;
@@ -62,16 +62,16 @@ always @* begin
 		end
 		STORE_REG1_A: begin
 			en_reg1 = 1;
-			next_state = WAIT_REG1_B;
-		end
-		WAIT_REG1_B: begin
-			if(rx_ready) next_state = STORE_REG1_B;
-			else next_state = state;
-		end
-		STORE_REG1_B: begin
-			en_reg1 = 1;
 			next_state = WAIT_REG2_A;
 		end
+		// WAIT_REG1_B: begin
+		// 	if(rx_ready) next_state = STORE_REG1_B;
+		// 	else next_state = state;
+		// end
+		// STORE_REG1_B: begin
+		// 	en_reg1 = 1;
+		// 	next_state = WAIT_REG2_A;
+		// end
 
 		//Now, we store the lower threshold.
 		WAIT_REG2_A: begin
@@ -80,16 +80,16 @@ always @* begin
 		end
 		STORE_REG2_A: begin
 			en_reg2 = 1;
-			next_state = WAIT_REG2_B;
-		end
-		WAIT_REG2_B: begin
-			if(rx_ready) next_state = STORE_REG2_B;
-			else next_state = state;
-		end
-		STORE_REG2_B: begin
-			en_reg2 = 1;
 			next_state = IDLE;
 		end
+		// WAIT_REG2_B: begin
+		// 	if(rx_ready) next_state = STORE_REG2_B;
+		// 	else next_state = state;
+		// end
+		// STORE_REG2_B: begin
+		// 	en_reg2 = 1;
+		// 	next_state = IDLE;
+		// end
 		default: begin
 			next_state = IDLE;
 		end

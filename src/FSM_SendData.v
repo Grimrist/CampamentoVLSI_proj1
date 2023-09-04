@@ -17,8 +17,8 @@ localparam IDLE = 0;
 localparam WAIT_SUM = 1;
 localparam SEND_SUM_1 = 2;
 localparam WAIT_SEND_1 = 3;
-localparam SEND_SUM_2 = 4;
-localparam WAIT_SEND_2 = 5;
+// localparam SEND_SUM_2 = 4;
+// localparam WAIT_SEND_2 = 5;
 
 always @* begin
 	//Default state of outputs
@@ -45,17 +45,17 @@ always @* begin
 			next_state = WAIT_SEND_1;
 		end
 		WAIT_SEND_1: begin
-			if(timer >= 100) next_state = SEND_SUM_2;
-		end
-		SEND_SUM_2: begin
-			tx_send = 1;
-			send_sel = 1;
-			next_state = WAIT_SEND_2;
-		end
-		WAIT_SEND_2: begin
-			send_sel = 1;
 			if(timer >= 100) next_state = WAIT_SUM;
 		end
+		// SEND_SUM_2: begin
+		// 	tx_send = 1;
+		// 	send_sel = 1;
+		// 	next_state = WAIT_SEND_2;
+		// end
+		// WAIT_SEND_2: begin
+		// 	send_sel = 1;
+		// 	if(timer >= 100) next_state = WAIT_SUM;
+		// end
 		default: begin
 			next_state = IDLE;
 		end
