@@ -19,6 +19,8 @@ project:
     - uart_rx.v
     - uart_tx.v
     - USM_ringoscillator.v
+    - sky130_fd_sc_hd.v
+    - primitives.v
   top_module:  "tt_um_grimrist_temp_sens_hyst"      # put the name of your top module here, make it unique by prepending your github username
 
 # How many tiles your design occupies? A single tile is about 167x108 uM.
