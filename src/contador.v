@@ -6,10 +6,7 @@ reg aux;
 
 always @(posedge osc_clk) begin
 	if(reset) aux <= 1;
-end
-
-always @(posedge osc_clk) begin
-	if(clk && aux) begin
+	else if(clk && aux) begin
 		aux <= 0;
 		count <= 0;
 	end
