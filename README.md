@@ -2,7 +2,7 @@
 
 # Test Ring Oscillator Based Temp Sensor.
 
-> &copy; 2023 Francisco Aguirre and Francisca Donoso, Advanced Center for Electrical and Electronic Engeneering ([AC3E](http://ac3e.usm.cl/)), Universidad Tecnica Federico Santa Maria ([USM](https://usm.cl/)), Valparaiso, Chile
+> &copy; 2023 Francisco Aguirre, Francisca Donoso, Daniel Arevalos, Jorge Marín, Advanced Center for Electrical and Electronic Engineering ([AC3E](http://ac3e.usm.cl/)), Universidad Tecnica Federico Santa Maria ([USM](https://usm.cl/)), Valparaiso, Chile
 
 This is the second iteration of the ring oscillator based temp sensor in **Tiny Tapeout 04** from **Matt Venn**.
 
