@@ -3,8 +3,6 @@
 module FSM_SendData (
 	//INPUTS
 	input clk, reset, sum_ready, 
-	input tx_busy,
-	input [7:0] rx_data,
 	input en_send,
 	//OUTPUTS
 	output reg sum_en,
@@ -21,10 +19,6 @@ localparam SEND_SUM_1 = 2;
 localparam WAIT_SEND_1 = 3;
 localparam SEND_SUM_2 = 4;
 localparam WAIT_SEND_2 = 5;
-//localparam SEND_SUM_3 = 7;
-//localparam WAIT_SEND_3 = 8;
-
-localparam START_CODE = 0;
 
 always @* begin
 	//Default state of outputs

@@ -102,9 +102,9 @@ always @(posedge clk_in) begin
 end
 
 //Controllers
-FSM_Controller controller(clk_in, !rst_n, sum_ready, tx_busy, rx_data, rx_ready, en_send, en_reg1, en_reg2);
+FSM_Controller controller(clk_in, !rst_n, rx_data, rx_ready, en_send, en_reg1, en_reg2);
 FSM_Hysteresis hysteresis(clk_in, !rst_n, temp_high, temp_low, promedio, temp_warn);
-FSM_SendData sendData(clk_in, !rst_n, sum_ready, tx_busy, rx_data, en_send, sum_en, tx_start, send_sel);
+FSM_SendData sendData(clk_in, !rst_n, sum_ready, en_send, sum_en, tx_start, send_sel);
 
 
 //Communication

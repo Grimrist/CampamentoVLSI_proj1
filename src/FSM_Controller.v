@@ -2,8 +2,7 @@
 
 module FSM_Controller (
 	//INPUTS
-	input clk, reset, sum_ready, 
-	input tx_busy,
+	input clk, reset,
 	input [7:0] rx_data,
 	input rx_ready,
 	//OUTPUTS
