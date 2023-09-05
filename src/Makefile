@@ -9,7 +9,7 @@ TOPLEVEL_LANG ?= verilog
 ifneq ($(GATES),yes)
 
 # this is the only part you should need to modify:
-VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_grimrist_temp_sens_hyst.v $(PWD)/mux.v $(PWD)/contador.v $(PWD)/data_sync.v $(PWD)/FSM_Controller.v
+VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/tt_um_USM_temp_sens_hyst.v $(PWD)/mux.v $(PWD)/contador.v $(PWD)/data_sync.v $(PWD)/FSM_Controller.v
 VERILOG_SOURCES += $(PWD)/uart_baud_tick_gen.v $(PWD)/uart_rx.v $(PWD)/FSM_Hysteresis.v $(PWD)/FSM_SendData.v $(PWD)/uart_basic.v
 VERILOG_SOURCES += $(PWD)/uart_tx.v $(PWD)/USM_ringoscillator.v
 VERILOG_SOURCES += $(PWD)/promedio.v
@@ -25,6 +25,7 @@ COMPILE_ARGS    += -DSIM
 COMPILE_ARGS    += -DUNIT_DELAY=\#1
 VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/primitives.v
 VERILOG_SOURCES += $(PDK_ROOT)/sky130A/libs.ref/sky130_fd_sc_hd/verilog/sky130_fd_sc_hd.v
+VERILOG_SOURCES += $(PWD)/gl/sky130_fd_sc_hd__inv_override.v
 
 # this gets copied in by the GDS action workflow
 VERILOG_SOURCES += $(PWD)/tb.v $(PWD)/gate_level_netlist.v

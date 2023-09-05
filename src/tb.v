@@ -36,7 +36,7 @@ module tb ();
     assign temp_warn = uo_out[1];
     assign count_out = uio_out;
 
-    tt_um_grimrist_temp_sens_hyst tt_um_grimrist_temp_sens_hyst (
+    tt_um_USM_temp_sens_hyst tt_um_USM_temp_sens_hyst (
     // include power ports for the Gate Level test
     `ifdef GL_TEST
         .VPWR( 1'b1),

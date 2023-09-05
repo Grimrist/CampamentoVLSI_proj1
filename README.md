@@ -6,8 +6,8 @@
 
 This is the second iteration of the ring oscillator based temp sensor in **Tiny Tapeout 04** from **Matt Venn**.
 
-![main_diagram](https://raw.githubusercontent.com/Grimrist/tt04_usm_ro-based_tempsens-hyst/5e2bb18ec7927b7f8a91085f53489f488c201f28/diagram/main_diagram.png)
 
+![main_diagram](https://raw.githubusercontent.com/Grimrist/tt04_usm_ro-based_tempsens-hyst/5e2bb18ec7927b7f8a91085f53489f488c201f28/diagram/main_diagram.png)
 ## Description
 
 The system is composed of two ring oscillator that will be tested separately, the first one is a 99 stages [inversor2](https://antmicro-skywater-pdk-docs.readthedocs.io/en/test-submodules-in-rtd/contents/libraries/sky130_fd_sc_hd/cells/inv/README.html) ring oscillator with a frequency of 192MHz at 0 degrees and 180MHz at 200 degrees. The second one is a 33 stages [nand4](https://antmicro-skywater-pdk-docs.readthedocs.io/en/test-submodules-in-rtd/contents/libraries/sky130_fd_sc_hd/cells/nand4/README.html) ring oscillator with a frequency of 185MHz at 0 degrees and 150MHz at 200 degrees. The number of periods within a clock cycle is counted by a counter module, which is then sent to an averaging module to obtain the average of the last 4 samples. This average is then compared to two registers in order to determine whether the circuit is above or below certain configurable temperature thresholds, using hysteresis. Additionally, the count value is sent to the output in case the UART doesnt work.

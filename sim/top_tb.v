@@ -21,7 +21,7 @@ module top_tb();
     assign temp_warn = uo_out[1];
     assign count_out = uio_out;
     
-    tt_um_grimrist_temp_sens_hyst DUT(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
+    tt_um_USM_temp_sens_hyst DUT(ui_in, uo_out, uio_in, uio_out, uio_oe, ena, clk, rst_n);
     
     //50000
     always #50000 clk = ~clk;
