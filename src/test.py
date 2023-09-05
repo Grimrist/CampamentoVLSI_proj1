@@ -25,6 +25,7 @@ async def dummy_test(dut):
     await Timer(52083, units='ns')
     await Timer(1000000, units='ns')
     #Begin UART transmission
+    dut._log.info("Begin UART transmission")
     dut.rx.value = 0 #Start bit
     await Timer(1000000, units='ns')
     dut.rx.value = 0 #Bit 1
@@ -44,4 +45,5 @@ async def dummy_test(dut):
     dut.rx.value = 0 #Bit 8
     await Timer(1000000, units='ns')
     dut.rx.value = 0 #End bit
-    await Timer(10000000, units='ns')
+    dut._log.info("Finish transmission")
+    await Timer(1000000, units='ns')
