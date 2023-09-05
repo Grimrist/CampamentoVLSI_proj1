@@ -6,9 +6,9 @@ from cocotb.triggers import RisingEdge, FallingEdge, Timer, ClockCycles
 async def dummy_test(dut):
 
     dut._log.info("Start")
-    clock_in = Clock(dut.clk, 1, units="us")
+    clock_in = Clock(dut.clk, 100, units="us")
     cocotb.start_soon(clock_in.start())
-    clock_ext = Clock(dut.clk_external, 1, units="ms")
+    clock_ext = Clock(dut.clk_external, 2, units="us")
     cocotb.start_soon(clock_ext.start())
     # Initialize sim
     dut._log.info("Initialize")
@@ -19,12 +19,13 @@ async def dummy_test(dut):
     dut.en_nand_osc.value = 0
     dut.rx.value = 1
     await Timer(100000, units='ns')
+    dut._log.info("Enable inversor oscillator")
     dut.en_inv_osc.value = 1
     await Timer(15000, units='ns')
+    dut._log.info("Set reset to high")
     dut.rst_n.value = 1
     await Timer(52083, units='ns')
     await Timer(1000000, units='ns')
-    #Begin UART transmission
     dut._log.info("Begin UART transmission")
     dut.rx.value = 0 #Start bit
     await Timer(1000000, units='ns')
