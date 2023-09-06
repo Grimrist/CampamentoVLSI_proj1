@@ -12,7 +12,7 @@ module data_sync
 (
 	input clk,
 	input in,
-	input rst,
+	input reset,
 	output reg stable_out
 );
 
