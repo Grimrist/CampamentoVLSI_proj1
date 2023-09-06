@@ -13,7 +13,7 @@ module tt_um_USM_temp_sens_hyst(
 );
 
 wire rx, rx_ready, tx, tx_start, tx_busy;
-wire sum_ready, sum_en_prom, sum_en, sum_en_maint;
+wire sum_ready, sum_en_prom, sum_en, sum_en_maint, sum_sel_maint;
 wire osc_sel, en_inv_osc, en_nand_osc, en;
 wire clk_external, clk_sel, clk_in;
 wire out_osc_inv, out_osc_nand, out_osc;
