@@ -16,6 +16,7 @@ module uart_baud_tick_gen
 )(
 	input clk,
 	input enable,
+	input reset,
 	output tick
 );
 
@@ -34,11 +35,12 @@ module uart_baud_tick_gen
 			((BAUD_RATE * OVERSAMPLING << (ACC_WIDTH - SHIFT_LIMITER)) +
 			(CLK_FREQUENCY >> (SHIFT_LIMITER + 1))) / (CLK_FREQUENCY >> SHIFT_LIMITER);
 
-	(* keep = "true" *)
-	reg [ACC_WIDTH:0] acc = 0;
+	reg [ACC_WIDTH:0] acc;
 
 	always @(posedge clk)
-		if (enable)
+		if (reset) 
+			acc <= 0;
+		else if (enable)
 			acc <= acc[ACC_WIDTH-1:0] + INCREMENT[ACC_WIDTH:0];
 		else
 			acc <= INCREMENT[ACC_WIDTH:0];

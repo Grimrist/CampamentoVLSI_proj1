@@ -36,6 +36,7 @@ module uart_basic
 	) baud8_tick_blk (
 		.clk(clk),
 		.enable(1'b1),
+		.reset(reset),
 		.tick(baud8_tick)
 	);
 
@@ -61,6 +62,7 @@ module uart_basic
 	) baud_tick_blk (
 		.clk(clk),
 		.enable(tx_busy),
+		.reset(reset),
 		.tick(baud_tick)
 	);
 
