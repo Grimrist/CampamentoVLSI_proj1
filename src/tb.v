@@ -17,7 +17,7 @@ module tb ();
     end
 
     // wire up the inputs and outputs
-    reg clk_sel, clk, clk_external, en, reset, rx, osc_sel,;
+    reg clk_sel, clk, clk_external, en, reset, rx, osc_sel;
     wire tx, temp_warn;
     reg en_inv_osc, en_nand_osc;
     wire [7:0] ui_in, uo_out, uio_in, uio_out, uio_oe;
@@ -25,7 +25,7 @@ module tb ();
     wire [7:0] count_out;
     reg sum_en_maint;
     reg sum_sel_maint;
-    
+
     assign ui_in[0] = clk_external;
     assign ui_in[1] = clk_sel;
     assign ui_in[2] = en_inv_osc;
