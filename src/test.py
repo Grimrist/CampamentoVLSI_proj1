@@ -48,5 +48,5 @@ async def dummy_test(dut):
     dut.rx.value = 1 #End bit
     dut._log.info("Finish transmission")
     await Timer(1000000, units='ns')
-    dut.clk_sel.value = 1
+    dut.clk_sel.value = 0
     await Timer(10000000, units='ns')
