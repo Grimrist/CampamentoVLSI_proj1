@@ -28,6 +28,7 @@ module uart_rx
 	data_sync rx_sync_inst (
 		.clk(clk),
 		.in(rx),
+		.reset(reset),
 		.stable_out(rx_bit)
 	);
 

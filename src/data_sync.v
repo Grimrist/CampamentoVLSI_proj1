@@ -12,6 +12,7 @@ module data_sync
 (
 	input clk,
 	input in,
+	input rst,
 	output reg stable_out
 );
 
@@ -48,8 +49,13 @@ module data_sync
 	end
 
 	always @(posedge clk) begin
-		stable_out <= stable_out_next;
-		sync_counter <= sync_counter_next;
+		if(reset) begin
+			stable_out <= 1'b0;
+			sync_counter <= 1'b0;
+		end else begin 
+			stable_out <= stable_out_next;
+			sync_counter <= sync_counter_next;
+		end
 	end
 
 endmodule
