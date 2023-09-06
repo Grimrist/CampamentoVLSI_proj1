@@ -21,7 +21,7 @@ async def dummy_test(dut):
     await Timer(100000, units='ns')
     dut._log.info("Enable inversor oscillator")
     dut.en_inv_osc.value = 1
-    await Timer(15000, units='ns')
+    await Timer(1500000, units='ns')
     dut._log.info("Set reset to high")
     dut.rst_n.value = 1
     await Timer(52083, units='ns')
