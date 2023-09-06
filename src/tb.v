@@ -26,12 +26,12 @@ module tb ();
 
     assign ui_in[0] = clk_external;
     assign ui_in[1] = clk_sel;
-	assign ui_in[2] = en_inv_osc;
-	assign ui_in[3] = en_nand_osc;
+    assign ui_in[2] = en_inv_osc;
+    assign ui_in[3] = en_nand_osc;
     assign ui_in[4] = rx;
     assign ui_in[5] = osc_sel;
-    assign ui_in[6] = 'b0;
-    assign ui_in[7] = 'b0;
+    assign ui_in[6] = sum_en_maint;
+    assign ui_in[7] = sum_sel_maint;
     assign tx = uo_out[0];
     assign temp_warn = uo_out[1];
     assign count_out = uio_out;

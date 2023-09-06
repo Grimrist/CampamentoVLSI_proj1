@@ -17,14 +17,19 @@ async def dummy_test(dut):
     dut.osc_sel.value = 0
     dut.en_inv_osc.value = 0
     dut.en_nand_osc.value = 0
+    dut.sum_en_maint.value = 0
+    dut.sum_sel_maint.value = 0
     dut.rx.value = 1
     await Timer(100000, units='ns')
+    dut.sum_en_maint.value = 0
+    dut.sum_sel_maint.value = 1
     dut._log.info("Enable inversor oscillator")
     dut.en_inv_osc.value = 1
     await Timer(1500000, units='ns')
     dut._log.info("Set reset to high")
     dut.rst_n.value = 1
     await Timer(52083, units='ns')
+    dut.sum_en_maint.value = 1
     await Timer(1000000, units='ns')
     dut._log.info("Begin UART transmission")
     dut.rx.value = 0 #Start bit

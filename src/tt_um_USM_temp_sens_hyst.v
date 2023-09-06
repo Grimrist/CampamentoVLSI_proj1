@@ -13,7 +13,7 @@ module tt_um_USM_temp_sens_hyst(
 );
 
 wire rx, rx_ready, tx, tx_start, tx_busy;
-wire sum_ready, sum_en;
+wire sum_ready, sum_en_prom, sum_en, sum_en_maint;
 wire osc_sel, en_inv_osc, en_nand_osc, en;
 wire clk_external, clk_sel, clk_in;
 wire out_osc_inv, out_osc_nand, out_osc;
@@ -40,6 +40,8 @@ assign en_inv_osc = ui_in[2];
 assign en_nand_osc = ui_in[3];
 assign rx = ui_in[4];
 assign osc_sel = ui_in[5];
+assign sum_en_maint = ui_in[6];
+assign sum_sel_maint = ui_in[7];
 
 //OUTPUTS
 assign uo_out[0] = tx;
@@ -53,12 +55,7 @@ mux m(clk_external, clk, clk_sel, clk_in);
 mux m3(en_inv_osc, en_nand_osc, osc_sel, en);
 
 //tx_data management
-always @* begin
-	case(send_sel)
-		0: tx_data = promedio[7:0];
-		1: tx_data = 0;
-	endcase
-end
+assign tx_data = promedio[7:0];
 
 //Oscillators
 USM_ringoscillator_inv2 osc1(en_inv_osc, out_osc_inv);
@@ -70,10 +67,15 @@ contador #(10) cont(out_osc, en, !rst_n, clk_in, count);
 
 always @(posedge clk_in) begin
 	if(!rst_n) count_reg <= 0;
-	else count_reg <= count[7:0]; 
+	else count_reg <= count[7:0];
 end
 
-promedio #(10) prom(clk_in, !rst_n, en, sum_en, count, promedio, sum_ready);
+always @(posedge clk_in) begin
+	if(sum_sel_maint) sum_en_prom <= sum_en_maint;
+	else sum_en_prom <= sum_en;
+end
+
+promedio #(10) prom(clk_in, !rst_n, en, sum_en_prom, count, promedio, sum_ready);
 
 //Registers for threshold storage
 
